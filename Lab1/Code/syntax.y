@@ -126,6 +126,8 @@ Stmt : Exp SEMI                     {$$=nonTerminalNode("Stmt", 2, $1, $2);}
     | WHILE LP Exp RP Stmt          {$$ = nonTerminalNode("Stmt", 5, $1, $2, $3, $4, $5);}
     //| error SEMI                    {yyerrok;}
     | WHILE error RC                {yyerrok;}
+    | WHILE LP Exp RP error SEMI              {yyerrok;}
+    | Exp error                     {yyerrok;printf("here**********************\n");}
     ;
 // Local Definitions
 DefList : Def DefList               {$$ = nonTerminalNode("DefList", 2, $1, $2);}

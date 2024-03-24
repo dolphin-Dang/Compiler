@@ -32,7 +32,8 @@ struct TreeNode* nonTerminalNode(char* name, int num, ...)
         if(firstChild != NULL) break;
     }
     i++;
-    // printf("First child name: %s\n", firstChild->name);
+    //printf("First child name: %s\n", firstChild->name);
+    //printf("First child val: %s\n", firstChild->strval);
     // init this father node
     struct TreeNode* node = malloc(sizeof(struct TreeNode));
     strcpy(node->name, name);
