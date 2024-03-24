@@ -1,0 +1,10 @@
+int main(){
+  ia = 0;
+  int a[4];
+  ic = 0
+  while (ic < 4) {
+    write(c[ic]);
+    ic = ic + 1;
+  }
+  return 0;
+}
