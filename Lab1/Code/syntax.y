@@ -113,6 +113,7 @@ ParamDec : Specifier VarDec         {$$=nonTerminalNode("ParamDec", 2, $1, $2);}
 // Statements
 CompSt : LC DefList StmtList RC     {$$=nonTerminalNode("CompSt", 4, $1, $2, $3, $4);}
     | LC error DefList StmtList RC  {yyerrok;}
+    | LC DefList StmtList error StmtList RC {yyerrok;}
     ;
 StmtList : Stmt StmtList            {$$=nonTerminalNode("StmtList", 2, $1, $2);}
     |                               {$$=NULL; epsilon("StmtList");}
@@ -127,7 +128,7 @@ Stmt : Exp SEMI                     {$$=nonTerminalNode("Stmt", 2, $1, $2);}
     //| error SEMI                    {yyerrok;}
     | WHILE error RC                {yyerrok;}
     | WHILE LP Exp RP error SEMI              {yyerrok;}
-    | Exp error                     {yyerrok;printf("here**********************\n");}
+    //| Exp error                     {yyerrok;printf("here**********************\n");}
     ;
 // Local Definitions
 DefList : Def DefList               {$$ = nonTerminalNode("DefList", 2, $1, $2);}
