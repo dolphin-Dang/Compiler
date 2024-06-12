@@ -2,6 +2,7 @@
 #include "syntaxTree.h"
 #include "semanticAnalysis.h"
 #include "interRepres.h"
+#include "objCode.h"
 
 extern FILE* yyin;
 extern int yylineno;
@@ -33,6 +34,7 @@ int main(int argc, char** argv)
         symanticAnalysis(root);
         // printf("END of symantic analysis!\n");
         generateIR(root, f2);
+        generateObjectCode(f2);
     }
     fclose(f1);
     fclose(f2);

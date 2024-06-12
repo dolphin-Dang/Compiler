@@ -407,7 +407,7 @@ void generateIR(NODE root, FILE* file)
     Program_IR(root);
 
     // print IR code
-    printInterCode(file);
+    // printInterCode(file);
 }
 
 void Program_IR(NODE node)
